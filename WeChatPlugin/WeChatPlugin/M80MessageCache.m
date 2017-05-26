@@ -7,12 +7,8 @@
 //
 
 #import "M80MessageCache.h"
+#import "M80PluginHeader.h"
 
-
-@protocol M80MessageData <NSObject>
-- (NSString *)fromUsrName;
-- (long long)mesSvrID;
-@end
 
 
 @interface M80MessageCache ()
@@ -33,15 +29,20 @@
 - (void)receiveNormalMessage:(NSString *)session
                      msgData:(id)msgData
 {
-    id<M80MessageData> message = (id<M80MessageData>)msgData;
-    NSString *username = [message fromUsrName];
-    long long serverId = [message mesSvrID];
-    
-    if (username && serverId > 0)
+    if ([msgData isKindOfClass:M80Class(MessageData)])
     {
-        NSString *key = [NSString stringWithFormat:@"%lld",serverId];
-        _messageIds[key] = username;
+        MessageData* message = (MessageData *)msgData;
+        NSString *username = [message fromUsrName];
+        long long serverId = [message mesSvrID];
+        
+        if (username && serverId > 0)
+        {
+            NSString *key = [NSString stringWithFormat:@"%lld",serverId];
+            _messageIds[key] = username;
+        }
     }
+    
+
 }
 
 - (NSString *)userIdByMessageId:(NSString *)messageId

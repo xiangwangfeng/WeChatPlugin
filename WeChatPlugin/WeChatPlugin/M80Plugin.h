@@ -1,5 +1,5 @@
 //
-//  M80MessageHandler.h
+//  M80Plugin.h
 //  WeChatPlugin
 //
 //  Created by amao on 2017/5/26.
@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface M80MessageHandler : NSObject
-+ (instancetype)sharedHandler;
+@interface M80Plugin : NSObject
++ (instancetype)shared;
 - (void)receiveRevokedMessage:(NSString *)msg;
 - (void)receiveNormalMessage:(NSString *)session
                      msgData:(id)msgData;
+- (void)tryToAutoLogin;
 @end

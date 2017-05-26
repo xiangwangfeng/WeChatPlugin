@@ -1,17 +1,19 @@
 //
-//  M80MessageHandler.m
+//  M80Plugin.m
 //  WeChatPlugin
 //
 //  Created by amao on 2017/5/26.
 //  Copyright © 2017年 xiangwangfeng. All rights reserved.
 //
 
-#import "M80MessageHandler.h"
+#import "M80Plugin.h"
 #import "M80MessageCache.h"
 #import "M80NotificationManager.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import <Cocoa/Cocoa.h>
+#import "M80PluginHeader.h"
+
 
 void M80MainAsync(dispatch_block_t block)
 {
@@ -27,18 +29,18 @@ void M80MainAsync(dispatch_block_t block)
 
 
 
-@interface M80MessageHandler ()
+@interface M80Plugin ()
 @property (nonatomic,strong)    M80MessageCache *messageCache;
 @property (nonatomic,strong)    M80NotificationManager *notificationManager;
 @end
 
-@implementation M80MessageHandler
-+ (instancetype)sharedHandler
+@implementation M80Plugin
++ (instancetype)shared
 {
-    static M80MessageHandler *instance = nil;
+    static M80Plugin *instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance =[[M80MessageHandler alloc] init];
+        instance =[[M80Plugin alloc] init];
     });
     return instance;
 }
@@ -65,12 +67,23 @@ void M80MainAsync(dispatch_block_t block)
 - (void)receiveNormalMessage:(NSString *)session
                      msgData:(id)msgData
 {
-
+    
     M80MainAsync(^{
         [_messageCache receiveNormalMessage:session
                                     msgData:msgData];
     });
 }
+
+- (void)tryToAutoLogin
+{
+    AccountService *service = [[M80Class(MMServiceCenter) defaultCenter] getService:M80Class(AccountService)];
+    if ([service canAutoAuth])
+    {
+        [service AutoAuth];
+    }
+
+}
+
 
 #pragma mark - misc
 - (void)revoke:(NSString *)msg
@@ -88,7 +101,7 @@ void M80MainAsync(dispatch_block_t block)
         {
             nickname = [self nicknameById:fromId];
         }
-    
+        
         if ([session rangeOfString:@"@chatroom"].location != NSNotFound)
         {
             groupName = [self groupNameById:session];
@@ -130,23 +143,18 @@ void M80MainAsync(dispatch_block_t block)
 
 - (NSString *)nicknameById:(NSString *)userId
 {
-    id MMServiceCenter = ((id (*)(id, SEL, id))objc_msgSend)(objc_getClass("MMServiceCenter"), @selector(defaultCenter),nil);
-    id contactStorage = ((id (*)(id, SEL, id))objc_msgSend)(MMServiceCenter, @selector(getService:),objc_getClass("ContactStorage"));
-    id contact = ((id (*)(id, SEL, NSString *))objc_msgSend)(contactStorage, @selector(GetContact:),userId);
-    Ivar nicknameIvar = class_getInstanceVariable(objc_getClass("WCContactData"), "m_nsNickName");
-    id nickname = object_getIvar(contact, nicknameIvar);
+    ContactStorage *storage = [[M80Class(MMServiceCenter) defaultCenter] getService:M80Class(ContactStorage)];
+    WCContactData *data = [storage GetContact:userId];
+    NSString *nickname = [data m_nsNickName];
     return [nickname isKindOfClass:[NSString class]] ? nickname : nil;
 }
 
 - (NSString *)groupNameById:(NSString *)groupId
 {
-    id MMServiceCenter = ((id (*)(id, SEL, id))objc_msgSend)(objc_getClass("MMServiceCenter"), @selector(defaultCenter),nil);
-    id groupStorage = ((id (*)(id, SEL, id))objc_msgSend)(MMServiceCenter, @selector(getService:),objc_getClass("GroupStorage"));
-    id group = ((id (*)(id, SEL, NSString *))objc_msgSend)(groupStorage, @selector(GetGroupContact:),groupId);
-    Ivar nicknameIvar = class_getInstanceVariable(objc_getClass("WCContactData"), "m_nsNickName");
-    id groupName = object_getIvar(group, nicknameIvar);
-    return [groupName isKindOfClass:[NSString class]] ? groupName : nil;
-
+    GroupStorage *storage = [[M80Class(MMServiceCenter) defaultCenter] getService:M80Class(GroupStorage)];
+    WCContactData *data = [storage GetGroupContact:groupId];
+    NSString *nickname = [data m_nsNickName];
+    return [nickname isKindOfClass:[NSString class]] ? nickname : nil;
 }
 
 
@@ -160,3 +168,4 @@ void M80MainAsync(dispatch_block_t block)
 }
 
 @end
+
