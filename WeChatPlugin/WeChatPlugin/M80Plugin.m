@@ -7,13 +7,11 @@
 //
 
 #import "M80Plugin.h"
-#import "M80MessageCache.h"
 #import "M80NotificationManager.h"
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import <Cocoa/Cocoa.h>
 #import "M80PluginHeader.h"
-
 
 void M80MainAsync(dispatch_block_t block)
 {
@@ -30,7 +28,6 @@ void M80MainAsync(dispatch_block_t block)
 
 
 @interface M80Plugin ()
-@property (nonatomic,strong)    M80MessageCache *messageCache;
 @property (nonatomic,strong)    M80NotificationManager *notificationManager;
 @end
 
@@ -49,7 +46,6 @@ void M80MainAsync(dispatch_block_t block)
 {
     if (self = [super init])
     {
-        _messageCache = [[M80MessageCache alloc] init];
         _notificationManager = [[M80NotificationManager alloc] init];
     }
     return self;
@@ -64,51 +60,30 @@ void M80MainAsync(dispatch_block_t block)
 }
 
 
-- (void)receiveNormalMessage:(NSString *)session
-                     msgData:(id)msgData
-{
-    
-    M80MainAsync(^{
-        [_messageCache receiveNormalMessage:session
-                                    msgData:msgData];
-    });
-}
-
-- (void)tryToAutoLogin
-{
-    AccountService *service = [[M80Class(MMServiceCenter) defaultCenter] getService:M80Class(AccountService)];
-    if ([service canAutoAuth])
-    {
-        [service AutoAuth];
-    }
-
-}
-
-
 #pragma mark - misc
 - (void)revoke:(NSString *)msg
 {
-    NSString *groupName = nil;
-    NSString *nickname = nil;
-    
+    //=。= 根本不解析 xml...
+    NSString *title = @"撤回通知";
     NSString *session = [self session:msg];
-    NSString *messageId = [self msgId:msg];
-    
-    if ([session length] && [messageId length])
+    if ([session length])
     {
-        NSString *fromId = [_messageCache userIdByMessageId:messageId];
-        if (fromId)
-        {
-            nickname = [self nicknameById:fromId];
-        }
-        
         if ([session rangeOfString:@"@chatroom"].location != NSNotFound)
         {
-            groupName = [self groupNameById:session];
+            NSString *groupName = [self groupNameById:session];
+            if ([groupName length])
+            {
+                title = groupName;
+            }
+            else
+            {
+                title = @"群内撤回通知";
+            }
         }
     }
-    [self fireNotification:groupName
-                  nickname:nickname];
+    NSString *content = [self revokeTip:msg];
+    [self fireNotification:title
+                   content:content];
 }
 
 - (NSString *)content:(NSString *)msg
@@ -127,12 +102,6 @@ void M80MainAsync(dispatch_block_t block)
     return result;
 }
 
-- (NSString *)msgId:(NSString *)msg
-{
-    return [self content:msg
-                  prefix:@"<newmsgid>"
-                  suffix:@"</newmsgid>"];
-}
 
 - (NSString *)session:(NSString *)msg
 {
@@ -141,13 +110,14 @@ void M80MainAsync(dispatch_block_t block)
                   suffix:@"</session>"];
 }
 
-- (NSString *)nicknameById:(NSString *)userId
+- (NSString *)revokeTip:(NSString *)msg
 {
-    ContactStorage *storage = [[M80Class(MMServiceCenter) defaultCenter] getService:M80Class(ContactStorage)];
-    WCContactData *data = [storage GetContact:userId];
-    NSString *nickname = [data m_nsNickName];
-    return [nickname isKindOfClass:[NSString class]] ? nickname : nil;
+    return [self content:msg
+                  prefix:@"<replacemsg><![CDATA["
+                  suffix:@"]]></replacemsg>"];
 }
+
+
 
 - (NSString *)groupNameById:(NSString *)groupId
 {
@@ -159,12 +129,12 @@ void M80MainAsync(dispatch_block_t block)
 
 
 - (void)fireNotification:(NSString *)title
-                nickname:(NSString *)nickname
+                 content:(NSString *)content
 {
-    NSString *notificationTitle = [title length] ? title : @"撤回通知";
-    NSString *content = [NSString stringWithFormat:@"%@撤回了一条消息，快去看看吧",[nickname length] ? nickname : @"有人"];
+    NSString *notificationTitle     = title;
+    NSString *notificationContent   = [NSString stringWithFormat:@"%@，快去看看吧",content];
     [_notificationManager fire:notificationTitle
-                       content:content];
+                       content:notificationContent];
 }
 
 @end

@@ -12,11 +12,7 @@
 
 #define M80Class(classname) objc_getClass(#classname)
 
-@interface MessageData : NSObject
-- (NSString *)fromUsrName;
-- (long long)mesSvrID;
-- (Class)class;
-@end
+
 
 @interface WCContactData : NSObject
 - (NSString *)m_nsNickName;
@@ -32,19 +28,8 @@
 @interface MMService : NSObject
 @end
 
-
-@interface ContactStorage : MMService
-- (WCContactData *)GetContact:(NSString *)userId;
-@end
-
-
 @interface GroupStorage : MMService
 - (WCContactData *)GetGroupContact:(NSString *)groupId;
-@end
-
-@interface AccountService : MMService
-- (BOOL)canAutoAuth;
-- (void)AutoAuth;
 @end
 
 

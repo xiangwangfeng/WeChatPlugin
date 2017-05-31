@@ -14,8 +14,6 @@
 		E48D853A1ED7F8CE00D467AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E48D85381ED7F8CE00D467AB /* main.m */; };
 		E48D853D1ED7F95900D467AB /* Aspects.h in Headers */ = {isa = PBXBuildFile; fileRef = E48D853B1ED7F95900D467AB /* Aspects.h */; };
 		E48D853E1ED7F95900D467AB /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = E48D853C1ED7F95900D467AB /* Aspects.m */; };
-		E48D85411ED803BE00D467AB /* M80MessageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = E48D853F1ED803BE00D467AB /* M80MessageCache.h */; };
-		E48D85421ED803BE00D467AB /* M80MessageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E48D85401ED803BE00D467AB /* M80MessageCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +26,6 @@
 		E48D85381ED7F8CE00D467AB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E48D853B1ED7F95900D467AB /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
 		E48D853C1ED7F95900D467AB /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
-		E48D853F1ED803BE00D467AB /* M80MessageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80MessageCache.h; sourceTree = "<group>"; };
-		E48D85401ED803BE00D467AB /* M80MessageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80MessageCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +63,6 @@
 				E48D852F1ED7F80F00D467AB /* M80NotificationManager.h */,
 				E48D85301ED7F80F00D467AB /* M80NotificationManager.m */,
 				E48D85381ED7F8CE00D467AB /* main.m */,
-				E48D853F1ED803BE00D467AB /* M80MessageCache.h */,
-				E48D85401ED803BE00D467AB /* M80MessageCache.m */,
 				E439D2631ED82D2D00C1942E /* M80PluginHeader.h */,
 				E439D2641ED8323800C1942E /* M80Plugin.h */,
 				E439D2651ED8323800C1942E /* M80Plugin.m */,
@@ -84,7 +78,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E48D85311ED7F80F00D467AB /* M80NotificationManager.h in Headers */,
-				E48D85411ED803BE00D467AB /* M80MessageCache.h in Headers */,
 				E48D853D1ED7F95900D467AB /* Aspects.h in Headers */,
 				E439D2661ED8323800C1942E /* M80Plugin.h in Headers */,
 			);
@@ -151,7 +144,6 @@
 				E439D2671ED8323800C1942E /* M80Plugin.m in Sources */,
 				E48D853A1ED7F8CE00D467AB /* main.m in Sources */,
 				E48D85321ED7F80F00D467AB /* M80NotificationManager.m in Sources */,
-				E48D85421ED803BE00D467AB /* M80MessageCache.m in Sources */,
 				E48D853E1ED7F95900D467AB /* Aspects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

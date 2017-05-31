@@ -11,7 +11,4 @@
 @interface M80Plugin : NSObject
 + (instancetype)shared;
 - (void)receiveRevokedMessage:(NSString *)msg;
-- (void)receiveNormalMessage:(NSString *)session
-                     msgData:(id)msgData;
-- (void)tryToAutoLogin;
 @end
