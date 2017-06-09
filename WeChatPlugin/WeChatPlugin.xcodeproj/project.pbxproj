@@ -7,25 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E439D2661ED8323800C1942E /* M80Plugin.h in Headers */ = {isa = PBXBuildFile; fileRef = E439D2641ED8323800C1942E /* M80Plugin.h */; };
-		E439D2671ED8323800C1942E /* M80Plugin.m in Sources */ = {isa = PBXBuildFile; fileRef = E439D2651ED8323800C1942E /* M80Plugin.m */; };
-		E48D85311ED7F80F00D467AB /* M80NotificationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E48D852F1ED7F80F00D467AB /* M80NotificationManager.h */; };
-		E48D85321ED7F80F00D467AB /* M80NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E48D85301ED7F80F00D467AB /* M80NotificationManager.m */; };
+		E443D4FB1EEA3CF00030F5FE /* M80PluginHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = E443D4F21EEA3CF00030F5FE /* M80PluginHeader.h */; };
+		E443D4FC1EEA3CF00030F5FE /* M80NotificationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E443D4F41EEA3CF00030F5FE /* M80NotificationManager.h */; };
+		E443D4FD1EEA3CF00030F5FE /* M80NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E443D4F51EEA3CF00030F5FE /* M80NotificationManager.m */; };
+		E443D5001EEA3CF00030F5FE /* Aspects.h in Headers */ = {isa = PBXBuildFile; fileRef = E443D4F91EEA3CF00030F5FE /* Aspects.h */; };
+		E443D5011EEA3CF00030F5FE /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = E443D4FA1EEA3CF00030F5FE /* Aspects.m */; };
+		E443D5041EEA3D530030F5FE /* M80RevokeService.h in Headers */ = {isa = PBXBuildFile; fileRef = E443D5021EEA3D530030F5FE /* M80RevokeService.h */; };
+		E443D5051EEA3D530030F5FE /* M80RevokeService.m in Sources */ = {isa = PBXBuildFile; fileRef = E443D5031EEA3D530030F5FE /* M80RevokeService.m */; };
+		E443D5081EEA3D680030F5FE /* M80Plugin.h in Headers */ = {isa = PBXBuildFile; fileRef = E443D5061EEA3D680030F5FE /* M80Plugin.h */; };
+		E443D5091EEA3D680030F5FE /* M80Plugin.m in Sources */ = {isa = PBXBuildFile; fileRef = E443D5071EEA3D680030F5FE /* M80Plugin.m */; };
 		E48D853A1ED7F8CE00D467AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E48D85381ED7F8CE00D467AB /* main.m */; };
-		E48D853D1ED7F95900D467AB /* Aspects.h in Headers */ = {isa = PBXBuildFile; fileRef = E48D853B1ED7F95900D467AB /* Aspects.h */; };
-		E48D853E1ED7F95900D467AB /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = E48D853C1ED7F95900D467AB /* Aspects.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E439D2631ED82D2D00C1942E /* M80PluginHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = M80PluginHeader.h; sourceTree = "<group>"; };
-		E439D2641ED8323800C1942E /* M80Plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80Plugin.h; sourceTree = "<group>"; };
-		E439D2651ED8323800C1942E /* M80Plugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80Plugin.m; sourceTree = "<group>"; };
+		E443D4F21EEA3CF00030F5FE /* M80PluginHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80PluginHeader.h; sourceTree = "<group>"; };
+		E443D4F41EEA3CF00030F5FE /* M80NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80NotificationManager.h; sourceTree = "<group>"; };
+		E443D4F51EEA3CF00030F5FE /* M80NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80NotificationManager.m; sourceTree = "<group>"; };
+		E443D4F91EEA3CF00030F5FE /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
+		E443D4FA1EEA3CF00030F5FE /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
+		E443D5021EEA3D530030F5FE /* M80RevokeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80RevokeService.h; sourceTree = "<group>"; };
+		E443D5031EEA3D530030F5FE /* M80RevokeService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80RevokeService.m; sourceTree = "<group>"; };
+		E443D5061EEA3D680030F5FE /* M80Plugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80Plugin.h; sourceTree = "<group>"; };
+		E443D5071EEA3D680030F5FE /* M80Plugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80Plugin.m; sourceTree = "<group>"; };
+		E443D50A1EEA3EAF0030F5FE /* M80Dispatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = M80Dispatch.h; sourceTree = "<group>"; };
 		E48D85231ED7F7BF00D467AB /* libWeChatPlugin.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libWeChatPlugin.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		E48D852F1ED7F80F00D467AB /* M80NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80NotificationManager.h; sourceTree = "<group>"; };
-		E48D85301ED7F80F00D467AB /* M80NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80NotificationManager.m; sourceTree = "<group>"; };
 		E48D85381ED7F8CE00D467AB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E48D853B1ED7F95900D467AB /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
-		E48D853C1ED7F95900D467AB /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E443D4F11EEA3CF00030F5FE /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				E443D5061EEA3D680030F5FE /* M80Plugin.h */,
+				E443D5071EEA3D680030F5FE /* M80Plugin.m */,
+				E443D4F21EEA3CF00030F5FE /* M80PluginHeader.h */,
+			);
+			path = Plugin;
+			sourceTree = "<group>";
+		};
+		E443D4F31EEA3CF00030F5FE /* Revoke */ = {
+			isa = PBXGroup;
+			children = (
+				E443D4F41EEA3CF00030F5FE /* M80NotificationManager.h */,
+				E443D4F51EEA3CF00030F5FE /* M80NotificationManager.m */,
+				E443D5021EEA3D530030F5FE /* M80RevokeService.h */,
+				E443D5031EEA3D530030F5FE /* M80RevokeService.m */,
+			);
+			path = Revoke;
+			sourceTree = "<group>";
+		};
+		E443D4F81EEA3CF00030F5FE /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E443D4F91EEA3CF00030F5FE /* Aspects.h */,
+				E443D4FA1EEA3CF00030F5FE /* Aspects.m */,
+				E443D50A1EEA3EAF0030F5FE /* M80Dispatch.h */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		E48D851A1ED7F7BF00D467AB = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +95,10 @@
 		E48D85251ED7F7BF00D467AB /* WeChatPlugin */ = {
 			isa = PBXGroup;
 			children = (
-				E48D853B1ED7F95900D467AB /* Aspects.h */,
-				E48D853C1ED7F95900D467AB /* Aspects.m */,
-				E48D852F1ED7F80F00D467AB /* M80NotificationManager.h */,
-				E48D85301ED7F80F00D467AB /* M80NotificationManager.m */,
+				E443D4F11EEA3CF00030F5FE /* Plugin */,
+				E443D4F31EEA3CF00030F5FE /* Revoke */,
+				E443D4F81EEA3CF00030F5FE /* Util */,
 				E48D85381ED7F8CE00D467AB /* main.m */,
-				E439D2631ED82D2D00C1942E /* M80PluginHeader.h */,
-				E439D2641ED8323800C1942E /* M80Plugin.h */,
-				E439D2651ED8323800C1942E /* M80Plugin.m */,
 			);
 			path = WeChatPlugin;
 			sourceTree = "<group>";
@@ -77,9 +110,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E48D85311ED7F80F00D467AB /* M80NotificationManager.h in Headers */,
-				E48D853D1ED7F95900D467AB /* Aspects.h in Headers */,
-				E439D2661ED8323800C1942E /* M80Plugin.h in Headers */,
+				E443D4FB1EEA3CF00030F5FE /* M80PluginHeader.h in Headers */,
+				E443D5041EEA3D530030F5FE /* M80RevokeService.h in Headers */,
+				E443D5001EEA3CF00030F5FE /* Aspects.h in Headers */,
+				E443D4FC1EEA3CF00030F5FE /* M80NotificationManager.h in Headers */,
+				E443D5081EEA3D680030F5FE /* M80Plugin.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,10 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E439D2671ED8323800C1942E /* M80Plugin.m in Sources */,
+				E443D4FD1EEA3CF00030F5FE /* M80NotificationManager.m in Sources */,
+				E443D5051EEA3D530030F5FE /* M80RevokeService.m in Sources */,
 				E48D853A1ED7F8CE00D467AB /* main.m in Sources */,
-				E48D85321ED7F80F00D467AB /* M80NotificationManager.m in Sources */,
-				E48D853E1ED7F95900D467AB /* Aspects.m in Sources */,
+				E443D5011EEA3CF00030F5FE /* Aspects.m in Sources */,
+				E443D5091EEA3D680030F5FE /* M80Plugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

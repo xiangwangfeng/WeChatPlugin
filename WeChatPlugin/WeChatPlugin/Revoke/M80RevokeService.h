@@ -1,14 +1,13 @@
 //
-//  M80Plugin.h
+//  M80RevokeService.h
 //  WeChatPlugin
 //
-//  Created by amao on 2017/5/26.
+//  Created by amao on 2017/6/9.
 //  Copyright © 2017年 xiangwangfeng. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface M80Plugin : NSObject
-+ (instancetype)shared;
+@interface M80RevokeService : NSObject
 - (void)receiveRevokedMessage:(NSString *)msg;
 @end

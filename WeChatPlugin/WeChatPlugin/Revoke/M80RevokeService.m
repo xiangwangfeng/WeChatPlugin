@@ -1,46 +1,21 @@
 //
-//  M80Plugin.m
+//  M80RevokeService.m
 //  WeChatPlugin
 //
-//  Created by amao on 2017/5/26.
+//  Created by amao on 2017/6/9.
 //  Copyright © 2017年 xiangwangfeng. All rights reserved.
 //
 
-#import "M80Plugin.h"
+#import "M80RevokeService.h"
 #import "M80NotificationManager.h"
-#import <objc/runtime.h>
-#import <objc/message.h>
-#import <Cocoa/Cocoa.h>
+#import "M80Dispatch.h"
 #import "M80PluginHeader.h"
 
-void M80MainAsync(dispatch_block_t block)
-{
-    if ([NSThread isMainThread])
-    {
-        block();
-    }
-    else
-    {
-        dispatch_async(dispatch_get_main_queue(), block);
-    }
-}
-
-
-
-@interface M80Plugin ()
+@interface M80RevokeService ()
 @property (nonatomic,strong)    M80NotificationManager *notificationManager;
 @end
 
-@implementation M80Plugin
-+ (instancetype)shared
-{
-    static M80Plugin *instance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance =[[M80Plugin alloc] init];
-    });
-    return instance;
-}
+@implementation M80RevokeService
 
 - (instancetype)init
 {
@@ -138,4 +113,3 @@ void M80MainAsync(dispatch_block_t block)
 }
 
 @end
-
