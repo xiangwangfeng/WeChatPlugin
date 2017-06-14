@@ -11,7 +11,6 @@
 #import <objc/message.h>
 #import <Cocoa/Cocoa.h>
 #import "Aspects.h"
-#import "M80PluginHeader.h"
 #import "M80RevokeService.h"
 
 

@@ -9,7 +9,7 @@
 #import "M80RevokeService.h"
 #import "M80NotificationManager.h"
 #import "M80Dispatch.h"
-#import "M80PluginHeader.h"
+#import "M80WeChat.h"
 
 @interface M80RevokeService ()
 @property (nonatomic,strong)    M80NotificationManager *notificationManager;
@@ -45,10 +45,10 @@
     {
         if ([session rangeOfString:@"@chatroom"].location != NSNotFound)
         {
-            NSString *groupName = [self groupNameById:session];
-            if ([groupName length])
+            NSString *teamName = [[M80WeChat shared] teamNameById:session];
+            if ([teamName length])
             {
-                title = groupName;
+                title = teamName;
             }
             else
             {
@@ -93,14 +93,6 @@
 }
 
 
-
-- (NSString *)groupNameById:(NSString *)groupId
-{
-    GroupStorage *storage = [[M80Class(MMServiceCenter) defaultCenter] getService:M80Class(GroupStorage)];
-    WCContactData *data = [storage GetGroupContact:groupId];
-    NSString *nickname = [data m_nsNickName];
-    return [nickname isKindOfClass:[NSString class]] ? nickname : nil;
-}
 
 
 - (void)fireNotification:(NSString *)title

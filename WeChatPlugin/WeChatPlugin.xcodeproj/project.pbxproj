@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E443D4FB1EEA3CF00030F5FE /* M80PluginHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = E443D4F21EEA3CF00030F5FE /* M80PluginHeader.h */; };
+		E443D4FB1EEA3CF00030F5FE /* M80WeChatHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = E443D4F21EEA3CF00030F5FE /* M80WeChatHeader.h */; };
 		E443D4FC1EEA3CF00030F5FE /* M80NotificationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E443D4F41EEA3CF00030F5FE /* M80NotificationManager.h */; };
 		E443D4FD1EEA3CF00030F5FE /* M80NotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E443D4F51EEA3CF00030F5FE /* M80NotificationManager.m */; };
 		E443D5001EEA3CF00030F5FE /* Aspects.h in Headers */ = {isa = PBXBuildFile; fileRef = E443D4F91EEA3CF00030F5FE /* Aspects.h */; };
@@ -17,10 +17,12 @@
 		E443D5081EEA3D680030F5FE /* M80Plugin.h in Headers */ = {isa = PBXBuildFile; fileRef = E443D5061EEA3D680030F5FE /* M80Plugin.h */; };
 		E443D5091EEA3D680030F5FE /* M80Plugin.m in Sources */ = {isa = PBXBuildFile; fileRef = E443D5071EEA3D680030F5FE /* M80Plugin.m */; };
 		E48D853A1ED7F8CE00D467AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E48D85381ED7F8CE00D467AB /* main.m */; };
+		E494D06D1EF0DB600098060F /* M80WeChat.h in Headers */ = {isa = PBXBuildFile; fileRef = E494D06B1EF0DB600098060F /* M80WeChat.h */; };
+		E494D06E1EF0DB600098060F /* M80WeChat.m in Sources */ = {isa = PBXBuildFile; fileRef = E494D06C1EF0DB600098060F /* M80WeChat.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E443D4F21EEA3CF00030F5FE /* M80PluginHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80PluginHeader.h; sourceTree = "<group>"; };
+		E443D4F21EEA3CF00030F5FE /* M80WeChatHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80WeChatHeader.h; sourceTree = "<group>"; };
 		E443D4F41EEA3CF00030F5FE /* M80NotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80NotificationManager.h; sourceTree = "<group>"; };
 		E443D4F51EEA3CF00030F5FE /* M80NotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80NotificationManager.m; sourceTree = "<group>"; };
 		E443D4F91EEA3CF00030F5FE /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
@@ -32,6 +34,8 @@
 		E443D50A1EEA3EAF0030F5FE /* M80Dispatch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = M80Dispatch.h; sourceTree = "<group>"; };
 		E48D85231ED7F7BF00D467AB /* libWeChatPlugin.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libWeChatPlugin.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48D85381ED7F8CE00D467AB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E494D06B1EF0DB600098060F /* M80WeChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80WeChat.h; sourceTree = "<group>"; };
+		E494D06C1EF0DB600098060F /* M80WeChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80WeChat.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +54,9 @@
 			children = (
 				E443D5061EEA3D680030F5FE /* M80Plugin.h */,
 				E443D5071EEA3D680030F5FE /* M80Plugin.m */,
-				E443D4F21EEA3CF00030F5FE /* M80PluginHeader.h */,
+				E443D4F21EEA3CF00030F5FE /* M80WeChatHeader.h */,
+				E494D06B1EF0DB600098060F /* M80WeChat.h */,
+				E494D06C1EF0DB600098060F /* M80WeChat.m */,
 			);
 			path = Plugin;
 			sourceTree = "<group>";
@@ -110,8 +116,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E443D4FB1EEA3CF00030F5FE /* M80PluginHeader.h in Headers */,
+				E443D4FB1EEA3CF00030F5FE /* M80WeChatHeader.h in Headers */,
 				E443D5041EEA3D530030F5FE /* M80RevokeService.h in Headers */,
+				E494D06D1EF0DB600098060F /* M80WeChat.h in Headers */,
 				E443D5001EEA3CF00030F5FE /* Aspects.h in Headers */,
 				E443D4FC1EEA3CF00030F5FE /* M80NotificationManager.h in Headers */,
 				E443D5081EEA3D680030F5FE /* M80Plugin.h in Headers */,
@@ -181,6 +188,7 @@
 				E48D853A1ED7F8CE00D467AB /* main.m in Sources */,
 				E443D5011EEA3CF00030F5FE /* Aspects.m in Sources */,
 				E443D5091EEA3D680030F5FE /* M80Plugin.m in Sources */,
+				E494D06E1EF0DB600098060F /* M80WeChat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
