@@ -19,6 +19,10 @@
 		E48D853A1ED7F8CE00D467AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E48D85381ED7F8CE00D467AB /* main.m */; };
 		E494D06D1EF0DB600098060F /* M80WeChat.h in Headers */ = {isa = PBXBuildFile; fileRef = E494D06B1EF0DB600098060F /* M80WeChat.h */; };
 		E494D06E1EF0DB600098060F /* M80WeChat.m in Sources */ = {isa = PBXBuildFile; fileRef = E494D06C1EF0DB600098060F /* M80WeChat.m */; };
+		E4A0348B1EF228610048DA0B /* M80DailyReportService.h in Headers */ = {isa = PBXBuildFile; fileRef = E4A034891EF228610048DA0B /* M80DailyReportService.h */; };
+		E4A0348C1EF228610048DA0B /* M80DailyReportService.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A0348A1EF228610048DA0B /* M80DailyReportService.m */; };
+		E4A0348F1EF228ED0048DA0B /* M80Util.h in Headers */ = {isa = PBXBuildFile; fileRef = E4A0348D1EF228ED0048DA0B /* M80Util.h */; };
+		E4A034901EF228ED0048DA0B /* M80Util.m in Sources */ = {isa = PBXBuildFile; fileRef = E4A0348E1EF228ED0048DA0B /* M80Util.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		E48D85381ED7F8CE00D467AB /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E494D06B1EF0DB600098060F /* M80WeChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80WeChat.h; sourceTree = "<group>"; };
 		E494D06C1EF0DB600098060F /* M80WeChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80WeChat.m; sourceTree = "<group>"; };
+		E4A034891EF228610048DA0B /* M80DailyReportService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80DailyReportService.h; sourceTree = "<group>"; };
+		E4A0348A1EF228610048DA0B /* M80DailyReportService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80DailyReportService.m; sourceTree = "<group>"; };
+		E4A0348D1EF228ED0048DA0B /* M80Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80Util.h; sourceTree = "<group>"; };
+		E4A0348E1EF228ED0048DA0B /* M80Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80Util.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,8 @@
 				E443D4F91EEA3CF00030F5FE /* Aspects.h */,
 				E443D4FA1EEA3CF00030F5FE /* Aspects.m */,
 				E443D50A1EEA3EAF0030F5FE /* M80Dispatch.h */,
+				E4A0348D1EF228ED0048DA0B /* M80Util.h */,
+				E4A0348E1EF228ED0048DA0B /* M80Util.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -101,12 +111,22 @@
 		E48D85251ED7F7BF00D467AB /* WeChatPlugin */ = {
 			isa = PBXGroup;
 			children = (
+				E4A034801EF227500048DA0B /* DailyReport */,
 				E443D4F11EEA3CF00030F5FE /* Plugin */,
 				E443D4F31EEA3CF00030F5FE /* Revoke */,
 				E443D4F81EEA3CF00030F5FE /* Util */,
 				E48D85381ED7F8CE00D467AB /* main.m */,
 			);
 			path = WeChatPlugin;
+			sourceTree = "<group>";
+		};
+		E4A034801EF227500048DA0B /* DailyReport */ = {
+			isa = PBXGroup;
+			children = (
+				E4A034891EF228610048DA0B /* M80DailyReportService.h */,
+				E4A0348A1EF228610048DA0B /* M80DailyReportService.m */,
+			);
+			path = DailyReport;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +138,9 @@
 			files = (
 				E443D4FB1EEA3CF00030F5FE /* M80WeChatHeader.h in Headers */,
 				E443D5041EEA3D530030F5FE /* M80RevokeService.h in Headers */,
+				E4A0348F1EF228ED0048DA0B /* M80Util.h in Headers */,
 				E494D06D1EF0DB600098060F /* M80WeChat.h in Headers */,
+				E4A0348B1EF228610048DA0B /* M80DailyReportService.h in Headers */,
 				E443D5001EEA3CF00030F5FE /* Aspects.h in Headers */,
 				E443D4FC1EEA3CF00030F5FE /* M80NotificationManager.h in Headers */,
 				E443D5081EEA3D680030F5FE /* M80Plugin.h in Headers */,
@@ -183,12 +205,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4A0348C1EF228610048DA0B /* M80DailyReportService.m in Sources */,
 				E443D4FD1EEA3CF00030F5FE /* M80NotificationManager.m in Sources */,
 				E443D5051EEA3D530030F5FE /* M80RevokeService.m in Sources */,
 				E48D853A1ED7F8CE00D467AB /* main.m in Sources */,
 				E443D5011EEA3CF00030F5FE /* Aspects.m in Sources */,
 				E443D5091EEA3D680030F5FE /* M80Plugin.m in Sources */,
 				E494D06E1EF0DB600098060F /* M80WeChat.m in Sources */,
+				E4A034901EF228ED0048DA0B /* M80Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

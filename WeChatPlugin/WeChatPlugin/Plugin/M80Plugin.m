@@ -12,12 +12,14 @@
 #import <Cocoa/Cocoa.h>
 #import "Aspects.h"
 #import "M80RevokeService.h"
+#import "M80DailyReportService.h"
 
 
 
 
 @interface M80Plugin ()
 @property (nonatomic,strong)    M80RevokeService *revokeService;
+@property (nonatomic,strong)    M80DailyReportService *reportService;
 
 @end
 
@@ -38,6 +40,7 @@
     if (self = [super init])
     {
         _revokeService = [[M80RevokeService alloc] init];
+        _reportService = [[M80DailyReportService alloc] init];
 
     }
     return self;
@@ -46,6 +49,7 @@
 - (void)start
 {
     [self hookRevokeMsg];
+    [self hookAuthOK];
 }
 
 - (void)hookRevokeMsg
@@ -65,10 +69,33 @@
                        error:&error];
     if (error)
     {
-        NSLog(@"hook %@ failed error %@",NSStringFromSelector(sel),error);
+        NSLog(@"hook %@ %@ failed error %@",NSStringFromClass(cls),NSStringFromSelector(sel),error);
     }
 }
 
+- (void)hookAuthOK
+{
+    Class cls = NSClassFromString(@"MMMainWindowController");
+    SEL sel = NSSelectorFromString(@"onAuthOK");
+
+    id block = ^(id<AspectInfo> info) {
+        NSLog(@"Plugin auth OK");
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.reportService report];
+        });
+        
+    };
+    
+    NSError *error = nil;
+    [cls aspect_hookSelector:sel
+                 withOptions:AspectPositionAfter
+                  usingBlock:block
+                       error:&error];
+    if (error)
+    {
+        NSLog(@"hook %@ %@ failed error %@",NSStringFromClass(cls),NSStringFromSelector(sel),error);
+    }
+}
 
 
 @end
