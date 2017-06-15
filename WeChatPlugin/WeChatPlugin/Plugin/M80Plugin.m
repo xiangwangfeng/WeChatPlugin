@@ -13,6 +13,7 @@
 #import "Aspects.h"
 #import "M80RevokeService.h"
 #import "M80DailyReportService.h"
+#import "M80Util.h"
 
 
 
@@ -50,6 +51,7 @@
 {
     [self hookRevokeMsg];
     [self hookAuthOK];
+    [self addListeners];
 }
 
 - (void)hookRevokeMsg
@@ -97,6 +99,35 @@
     }
 }
 
+- (void)addListeners
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(onAppFinishLaunching:)
+                                                 name:NSApplicationDidFinishLaunchingNotification
+                                               object:nil];
+}
+
+- (void)onAppFinishLaunching:(NSNotification *)aNotification
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSMenu *helpMenu = [[NSApplication sharedApplication] helpMenu];
+        {
+            NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"打开插件目录"
+                                                          action:@selector(onOpenPluginDir:)
+                                                   keyEquivalent:@"o"];
+            item.target = self;
+            [item setEnabled:YES];
+            [helpMenu addItem:item];
+            [helpMenu setAutoenablesItems:NO];
+        }
+    });
+}
+
+- (void)onOpenPluginDir:(NSMenuItem *)menuItem
+{
+    [[NSWorkspace sharedWorkspace] openFile:[M80Util documentDir]];
+}
 
 @end
 
