@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface M80RevokeService : NSObject
-- (void)receiveRevokedMessage:(NSString *)msg;
+- (void)receiveRevokedMessage:(id)msgData;
 @end

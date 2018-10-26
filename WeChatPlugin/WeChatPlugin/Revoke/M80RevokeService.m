@@ -7,6 +7,7 @@
 //
 
 #import "M80RevokeService.h"
+#import <objc/runtime.h>
 #import "M80NotificationManager.h"
 #import "M80Dispatch.h"
 #import "M80WeChat.h"
@@ -36,10 +37,19 @@
 
 
 #pragma mark - misc
-- (void)revoke:(NSString *)msg
+- (void)revoke:(id)msgData
 {
-    //=。= 根本不解析 xml...
+    NSString* msg = msgData;
+    if ([msgData isKindOfClass:objc_getClass("MessageData")])
+    {
+        msg = [msgData valueForKey:@"msgContent"];
+        
+    }
     NSString *title = @"撤回通知";
+    if(![msg isKindOfClass:[NSString class]]) {
+        return;
+    }
+    //=。= 根本不解析 xml...
     NSString *session = [self session:msg];
     if ([session length])
     {

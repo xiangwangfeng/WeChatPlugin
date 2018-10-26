@@ -59,7 +59,7 @@
     Class cls = NSClassFromString(@"MessageService");
     SEL sel = NSSelectorFromString(@"onRevokeMsg:");
     
-    id block = ^(id<AspectInfo> info,NSString *msg) {
+    id block = ^(id<AspectInfo> info,id msg) {
         NSLog(@"Plugin revoke %@",msg);
         [self.revokeService receiveRevokedMessage:msg];
     };
