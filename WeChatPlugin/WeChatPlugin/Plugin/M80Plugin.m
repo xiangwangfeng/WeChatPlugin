@@ -57,7 +57,9 @@
 - (void)hookRevokeMsg
 {
     Class cls = NSClassFromString(@"MessageService");
-    SEL sel = NSSelectorFromString(@"onRevokeMsg:");
+    NSString *selName = [M80Util isLargerOrEqualVersion:@"2.3.22"] ? @"FFToNameFavChatZZ:" :
+    @"onRevokeMsg:";
+    SEL sel = NSSelectorFromString(selName);
     
     id block = ^(id<AspectInfo> info,id msg) {
         NSLog(@"Plugin revoke %@",msg);
@@ -77,8 +79,8 @@
 
 - (void)hookAuthOK
 {
-    Class cls = NSClassFromString(@"MMMainWindowController");
-    SEL sel = NSSelectorFromString(@"onAuthOK");
+    Class cls = NSClassFromString(@"AccountService");
+    SEL sel  = NSSelectorFromString(@"onAuthOKOfUser:withSessionKey:withServerId:autoAuthKey:isAutoAuth:");
 
     id block = ^(id<AspectInfo> info) {
         NSLog(@"Plugin auth OK");

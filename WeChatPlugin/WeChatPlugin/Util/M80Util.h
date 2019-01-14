@@ -10,4 +10,5 @@
 
 @interface M80Util : NSObject
 + (NSString *)documentDir;
++ (BOOL)isLargerOrEqualVersion:(NSString *)version;
 @end
