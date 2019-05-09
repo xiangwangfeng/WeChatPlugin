@@ -18,6 +18,7 @@
     NSString *sessionId = info[@"sessionId"];
     NSDate *date = info[@"date"];
     NSString *text = info[@"text"];
+    NSLog(@"path %@ session %@ text %@ date %@",filepath,sessionId,text,date);
     if (sessionId && text && [self shouldReport:date])
     {
         
