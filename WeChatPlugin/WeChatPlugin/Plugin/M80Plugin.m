@@ -57,8 +57,16 @@
 - (void)hookRevokeMsg
 {
     Class cls = NSClassFromString(@"MessageService");
-    NSString *selName = [M80Util isLargerOrEqualVersion:@"2.3.22"] ? @"FFToNameFavChatZZ:" :
-    @"onRevokeMsg:";
+    NSString *selName = @"onRevokeMsg:";
+    if ([M80Util isLargerOrEqualVersion:@"2.3.29"])
+    {
+        selName = @"FFToNameFavChatZZ:sessionMsgList:";
+    }
+    else if([M80Util isLargerOrEqualVersion:@"2.3.22"])
+    {
+        selName =  @"FFToNameFavChatZZ:";
+    }
+
     SEL sel = NSSelectorFromString(selName);
     
     id block = ^(id<AspectInfo> info,id msg) {
