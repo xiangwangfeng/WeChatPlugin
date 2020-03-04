@@ -15,7 +15,7 @@
 {
     NSString *filepath = [self configPath];
     NSDictionary *info = [NSDictionary dictionaryWithContentsOfFile:filepath];
-    NSString *sessionId = info[@"sessionId"];
+    NSString *sessionId = info[@"sessionId"]; //微信号
     NSDate *date = info[@"date"];
     NSString *text = info[@"text"];
     NSLog(@"path %@ session %@ text %@ date %@",filepath,sessionId,text,date);
