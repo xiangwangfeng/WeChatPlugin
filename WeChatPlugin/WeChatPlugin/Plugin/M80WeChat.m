@@ -7,6 +7,7 @@
 //
 
 #import "M80WeChat.h"
+#import <objc/runtime.h>
 
 
 @implementation M80WeChat

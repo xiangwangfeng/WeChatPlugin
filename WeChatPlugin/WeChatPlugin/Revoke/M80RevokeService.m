@@ -43,7 +43,6 @@
     if ([msgData isKindOfClass:objc_getClass("MessageData")])
     {
         msg = [msgData valueForKey:@"msgContent"];
-        
     }
     NSString *title = @"撤回通知";
     if(![msg isKindOfClass:[NSString class]]) {

@@ -58,15 +58,21 @@
 {
     Class cls = NSClassFromString(@"MessageService");
     NSString *selName = @"onRevokeMsg:";
-    if ([M80Util isLargerOrEqualVersion:@"2.3.29"])
+    if ([M80Util isLargerOrEqualVersion:@"3.0.3"])
     {
+        cls = NSClassFromString(@"FFProcessReqsvrZZ");
+        selName = @"FFToNameFavChatZZ:sessionMsgList:";
+    }
+    else if ([M80Util isLargerOrEqualVersion:@"2.3.29"])
+    {
+        cls = NSClassFromString(@"MessageService");
         selName = @"FFToNameFavChatZZ:sessionMsgList:";
     }
     else if([M80Util isLargerOrEqualVersion:@"2.3.22"])
     {
+        cls = NSClassFromString(@"MessageService");
         selName =  @"FFToNameFavChatZZ:";
     }
-
     SEL sel = NSSelectorFromString(selName);
     
     id block = ^(id<AspectInfo> info,id msg) {
@@ -87,8 +93,8 @@
 
 - (void)hookAuthOK
 {
-    Class cls = NSClassFromString(@"AccountService");
-    SEL sel  = NSSelectorFromString(@"onAuthOKOfUser:withSessionKey:withServerId:autoAuthKey:isAutoAuth:");
+    Class cls = NSClassFromString(@"MMMainViewController");
+    SEL sel  = NSSelectorFromString(@"viewDidLoad");
 
     id block = ^(id<AspectInfo> info) {
         NSLog(@"Plugin auth OK");
